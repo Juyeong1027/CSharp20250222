@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using System.Xml.Serialization;
 
+
 namespace CSharpStudy20250222
 {
     internal class Program
@@ -41,68 +42,61 @@ namespace CSharpStudy20250222
             // 연간 회원인가요? (네/아니요) : 네
             // 입장료 : 무료 입장입니다.
 
-            string  agg,agg1,agg2;
-            int sh = 7000;
 
 
 
             Console.Write("나이를 입력하세요 : ");
             string ageInput = Console.ReadLine();
 
+
+
             int age = int.Parse(ageInput);
 
 
 
-
-
-  
-
-            if (age >= 4 && age <= 12)
-            {
-                agg = "kids";
-            }
-            else if ( age >= 13 && age <= 18)
-            {
-                agg = "Student";
-            }
-            else if ( age >= 19 &&  age <= 64)
-            {
-                agg = "F";
-            }
-            else
+            if (age <= 3 || age >= 65 )
             {
                 Console.WriteLine("입장료 : 무료 입장입니다.");
-                return;
             }
+            else if (age >= 4 && age <= 18){
+                Console.Write("연간 회원이신가요? (네/아니요) : ");
+                 string yuser = Console.ReadLine();
 
+                if (yuser == "네")
+                {
+                    System.Console.WriteLine("입장료 : 무료 입장입니다.");
+                }
+                 else if (yuser == "아니요" && age <= 12)
+                {
+                    System.Console.WriteLine("입장료 : 5,000원 입니다.");
+                }
+                else{
+                    System.Console.WriteLine("입장료 : 8,000원 입니다.");
+                }
+            }
+            else 
+            {
             Console.Write("군인이신가요? (네/아니요) : ");
             string army = Console.ReadLine();
 
-            Console.Write("연간 회원이신가요? (네/아니요) : ");
-            string yuser = Console.ReadLine();
-
-
-            if (yuser == "네")
-            {
-                agg2 = "yes";
+            if (army == "네" && age >= 19){
+                System.Console.WriteLine("입장료 : 7,000원 입니다.");
             }
-            else if(yuser == "아니요")
+            else 
             {
-                agg2 = "No";
+                Console.Write("연간 회원이신가요? (네/아니요) : ");
+                 string yuser = Console.ReadLine();
+
+                if (yuser == "네")
+                {
+                    System.Console.WriteLine("입장료 : 무료 입장입니다.");
+                }
+                 else
+                {
+                    System.Console.WriteLine("입장료 : 10,000원 입니다.");
             }
-
-            if (yuser == "네")
-            {
-                Console.WriteLine("입장료 : 무료 입장입니다.");
             }
-            else if (agg == "F" && army == "네")
-            {
-                Console.WriteLine($"입장료 :  ");
             }
-
-
-
-
         }
         }
     }
