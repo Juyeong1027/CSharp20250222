@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using System.Xml.Serialization;
@@ -10,92 +11,121 @@ namespace CSharpStudy20250222
     {
         static void Main(string[] args)
         {
-            // 놀이동산 입장권
-            // 사용자로부터 나이, 군인 할인, 연간 회원 여부를 입력 받아서 입장 요금을 계산합니다.
+            // * 찍는 문제
+            // 문제 1. 왼쪽 정렬된 직각 삼각형
+            // *
+            // **
+            // ***
+            // ****
+            // *****
 
-            // 무료입장 조건
-            // 1. 나이가 3세 이하
-            // 2. 나이가 65세 이상
-            // 3. 연간 회원
+            //for (int a = 1; a <= 5; a++)
+            //{
+            //    for (int b = 1; b <= a; b++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine("");
+            //}
 
-            // 할인 적용
-            // 1. 군인 -> 30% 할인
+            //Console.WriteLine("");
 
-            // 일반 요금
-            // 성인(19~64) : 10,000원
-            // 청소년(13~18) : 8,000원
-            // 어린이(4~12) : 5,000원
+            //for (int c = 1; c <= 5; c++)
+            //{
+            //    for (int d = 5; d >= c; d--)
+            //    {
 
-
-            //성인 할인 : 7,000원
-
-
-            // 출력 예시 
-            // 나이를 입력 하세요 : 20
-            // 군인인가요? (네/아니요) : 네
-            // 연간 회원인가요? (네/아니요) : 아니요
-            // 입장료 : '7,000'원 입니다
-
-            // 출력 예시 
-            // 나이를 입력 하세요 : 20
-            // 군인인가요? (네/아니요) : 네
-            // 연간 회원인가요? (네/아니요) : 네
-            // 입장료 : 무료 입장입니다.
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine("");
+            //}
 
 
+            // 문제 2. 오른쪽 정렬된 직각 삼각형
+
+            //for (int e = 1; e <= 5; e++)
+            //{
+            //    for (int f = 4; f >= e; f--)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int g = 1; g <= e; g++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine("");
+            //}
 
 
-            Console.Write("나이를 입력하세요 : ");
-            string ageInput = Console.ReadLine();
+
+            // 문제 3. 피라미드(중앙 정렬)
+            //    *
+            //   ***
+            //  *****
+            // *******
+            //*********
+
+            //for (int h = 1; h <= 5; h++) // Z값 조건 : 5칸 / X칸 조건 : 9
+            //{
+            //    for (int i = 4; i >= h; i--)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 0; j < h; j++)
+            //    { 
+            //        Console.Write("*");
+            //        for (int k = 1; k <= j; k+=4)
+            //        {
+            //            Console.Write("*");
+            //        }
+            //    }
+            //    Console.WriteLine("");
+            //}
 
 
+            // 문제 4. 다이아몬드 
 
-            int age = int.Parse(ageInput);
+            string ab = Console.ReadLine();
+            int acac = int.Parse(ab);
 
+            int ah = acac / 2 + 1;
+            int ad = acac / 2 - 1;
+            int ap = acac / 2;
+            
 
+            // 5 ( 상단 3 / 하단 2 )
 
-            if (age <= 3 || age >= 65 )
+            for (int h = 1; h <= ah; h++)
             {
-                Console.WriteLine("입장료 : 무료 입장입니다.");
-            }
-            else if (age >= 4 && age <= 18){
-                Console.Write("연간 회원이신가요? (네/아니요) : ");
-                 string yuser = Console.ReadLine();
-
-                if (yuser == "네")
+                for (int i = acac; i >= h; i--)
                 {
-                    System.Console.WriteLine("입장료 : 무료 입장입니다.");
+                    Console.Write(" ");
                 }
-                 else if (yuser == "아니요" && age <= 12)
+                for (int j = 0; j < h; j++)
                 {
-                    System.Console.WriteLine("입장료 : 5,000원 입니다.");
+                    Console.Write("*");
+                    for (int k = 0; k < j; k += ah)
+                    {
+                        Console.Write("*");
+                    }
                 }
-                else{
-                    System.Console.WriteLine("입장료 : 8,000원 입니다.");
-                }
+                Console.WriteLine("");
             }
-            else 
+            for (int h = ap; h >= 1; h--)
             {
-            Console.Write("군인이신가요? (네/아니요) : ");
-            string army = Console.ReadLine();
-
-            if (army == "네" && age >= 19){
-                System.Console.WriteLine("입장료 : 7,000원 입니다.");
-            }
-            else 
-            {
-                Console.Write("연간 회원이신가요? (네/아니요) : ");
-                 string yuser = Console.ReadLine();
-
-                if (yuser == "네")
+                for (int i = acac; i >= h; i--)
                 {
-                    System.Console.WriteLine("입장료 : 무료 입장입니다.");
+                    Console.Write(" ");
                 }
-                 else
+                for (int j = 0; j < h; j++)
                 {
-                    System.Console.WriteLine("입장료 : 10,000원 입니다.");
-            }
-            }
+                    Console.Write("*");
+                    for (int k = 0; k < j; k += ad)
+                    {
+                        Console.Write("*");
+                    }
+                }
+                Console.WriteLine("");
             }
         }
         }
